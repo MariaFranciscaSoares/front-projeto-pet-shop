@@ -6,7 +6,7 @@ import { MenuComponent } from './menu/menu.component';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { EfetuarVendaComponent } from './efetuar-venda/efetuar-venda.component';
 import { FormsModule } from '@angular/forms';
-import { NomeComponentComponent } from './lista-usuario/nome-component.component';
+import { ListaUsuarioComponent } from './lista-usuario/lista-usuario.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { NomeComponentComponent } from './lista-usuario/nome-component.component
     MenuComponent,
     CadastroUsuarioComponent,
     EfetuarVendaComponent,
-    NomeComponentComponent
+    ListaUsuarioComponent
   ],
   imports: [
     BrowserModule,

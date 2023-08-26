@@ -62,8 +62,7 @@ export class EfetuarVendaComponent implements OnInit {
       novaVenda.produto = this.produtoSelecionado;
       novaVenda.quantidade = this.quantidade;
       novaVenda.subtotal = (this.produtoSelecionado.valor * this.quantidade).toFixed(2);
-      novaVenda.data = new Date();
-     // novaVenda.data = this.da
+      novaVenda.data = this.formatarData(new Date());
 
       this.listaVendas.push(novaVenda);
 
@@ -71,6 +70,15 @@ export class EfetuarVendaComponent implements OnInit {
       this.produtoSelecionado = new Produto();
       this.quantidade = 0;
     }
+  }
+
+  public formatarData(date: Date) {
+    const dia = date.getDate();
+    const mes = date.getMonth() + 1; // Os meses em JavaScript são base 0
+    const ano = date.getFullYear();
+  
+    const dataFormatada = `${dia}/${mes}/${ano}`;
+    return dataFormatada;
   }
 
   buscarProduto(produto: Produto) {

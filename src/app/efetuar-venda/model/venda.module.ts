@@ -5,7 +5,7 @@ export class Venda {
     public produto!: Produto;
     public quantidade: number = 0;
     public subtotal: string = "";
-    public data: Data = new Date();
+    public data: string = "";
 }
 
 export class Produto {
