@@ -22,6 +22,7 @@ export class EfetuarVendaComponent implements OnInit {
 
   constructor() {
     this.produtos = this.criarListaProdutosSimulada();
+    console.log(this.produtos)
   }
 
   ngOnInit(): void {
@@ -47,7 +48,7 @@ export class EfetuarVendaComponent implements OnInit {
       const produto = new Produto();
       produto.id = i + 1;
       produto.nome = nomesProdutos[i];
-      produto.valor = Math.random() * 50 + 10; // Exemplo de valor aleatório
+      produto.valor = parseFloat((Math.random() * 50 + 10).toFixed(2)); // Exemplo de valor aleatório
       produto.quantidadeEstoque = Math.floor(Math.random() * 50) + 10; // Estoque aleatório
 
       listaProdutos.push(produto);
@@ -65,10 +66,11 @@ export class EfetuarVendaComponent implements OnInit {
       novaVenda.data = this.formatarData(new Date());
 
       this.listaVendas.push(novaVenda);
-
+      console.log(this.produtoSelecionado);
+      console.log(this.listaVendas);
       // Limpar campos após adicionar a venda
-      this.produtoSelecionado = new Produto();
-      this.quantidade = 0;
+     // this.produtoSelecionado = new Produto();
+      //this.quantidade = 0;
     }
   }
 
