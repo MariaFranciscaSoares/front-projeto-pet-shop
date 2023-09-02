@@ -94,4 +94,6 @@ export class EfetuarVendaComponent implements OnInit {
   setarProduto(produto: Produto) {
     this.produtoSelecionado = produto;
   }
+
+  
 }
