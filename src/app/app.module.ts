@@ -8,6 +8,7 @@ import { EfetuarVendaComponent } from './efetuar-venda/efetuar-venda.component';
 import { FormsModule } from '@angular/forms';
 import { ListaUsuarioComponent } from './lista-usuario/lista-usuario.component';
 import { IconComponent } from './icon/icon.component';
+import { CadastrarProdutoComponent } from './cadastrar-produto/cadastrar-produto.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { IconComponent } from './icon/icon.component';
     CadastroUsuarioComponent,
     EfetuarVendaComponent,
     ListaUsuarioComponent,
-    IconComponent
+    IconComponent,
+    CadastrarProdutoComponent
   ],
   imports: [
     BrowserModule,
