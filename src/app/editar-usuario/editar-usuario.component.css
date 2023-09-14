@@ -1,0 +1,36 @@
+/* Estilização dos inputs */
+.input-style {
+    border: 2px solid #ccc; /* Cor da borda */
+    border-radius: 5px; /* Cantos arredondados */
+    background-color: #f9f9f9; /* Cor de fundo */
+    color: #333; /* Cor do texto */
+}
+
+.input-style:focus {
+    border-color: #ff6347; /* Cor da borda quando em foco */
+    box-shadow: 0 0 8px rgba(255, 99, 71, 0.4); /* Sombra quando em foco */
+}
+
+/* Estilização do botão */
+.btn-style {
+    background-color: #ff6347; /* Cor de fundo do botão */
+    border-color: #ff6347; /* Cor da borda do botão */
+    color: #fff; /* Cor do texto do botão */
+}
+
+.btn-style:hover {
+    background-color: #ff4500; /* Cor de fundo do botão ao passar o mouse */
+    border-color: #ff4500; /* Cor da borda do botão ao passar o mouse */
+}
+
+.btn-style:focus {
+    box-shadow: 0 0 8px rgba(255, 69, 0, 0.4); /* Sombra quando em foco */
+}
+
+input[type="radio"]{
+    width: 20px;
+    height: 20px;
+}
+input[type="radio"]:checked{
+    background-color: #ff4500;
+}

@@ -13,6 +13,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
 import { MenuEstoqueComponent } from './menu-estoque/menu-estoque.component';
 import { MenuVendaComponent } from './menu-venda/menu-venda.component';
+import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 
 const routes: Routes = [
   { path: 'efetuar-venda', component: EfetuarVendaComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'menu-usuario', component: MenuUsuarioComponent},
   { path: 'menu-estoque', component: MenuEstoqueComponent},
   { path: 'menu-venda', component: MenuVendaComponent},
+  { path: 'editar-usuario', component: EditarUsuarioComponent},
 ];
 
 @NgModule({
@@ -35,7 +37,8 @@ const routes: Routes = [
     CadastrarProdutoComponent,
     MenuUsuarioComponent,
     MenuEstoqueComponent,
-    MenuVendaComponent
+    MenuVendaComponent,
+    EditarUsuarioComponent
   ],
   imports: [
     BrowserModule,

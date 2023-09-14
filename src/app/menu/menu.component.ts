@@ -12,4 +12,6 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  patinha = '/assets/pata.png';
+
 }
