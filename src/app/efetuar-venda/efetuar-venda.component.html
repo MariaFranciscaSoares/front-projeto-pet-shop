@@ -1,25 +1,24 @@
-<app-menu [pageTitle]="'Cadastrar Produto'">
+<app-menu [pageTitle]="'Efetuar Venda'">
     <div class="row">
         <div class="col-sm-4">
-            <form (submit)="adicionarVenda()">
+            <form class="venda-form" (submit)="adicionarVenda()">
                 <div class="row">
                     <div class="col-sm-6">
-                        <label for="inputState" class="form-label">Nome Produto:
-                        </label>
+                        <label for="inputState" class="form-label">Nome Produto:</label>
                         <select id="inputState" class="form-select" [(ngModel)]="produtoSelecionado"
-                            name="produtoSelecionado">{{produtoSelecionado.nome}}
+                            name="produtoSelecionado">
                             <option *ngFor="let produto of produtos" [ngValue]="produto"
                                 (change)="buscarProduto(produtoSelecionado)">{{ produto.nome }}</option>
                         </select>
                     </div>
                     <div class="col-sm-2">
                         <label for="quantidade" class="form-label">Quantidade:</label>
-                        <input type="number" class="form-control" id="quantidade" name="quantidade"
+                        <input type="number" class="form-control input-style" id="quantidade" name="quantidade"
                             [(ngModel)]="quantidade">
                     </div>
                 </div>
                 <div class="col-sm-12 mt-2">
-                    <button type="submit" class="btn btn-primary" style="background-color: #f7a839; border: #f7a839; color: #400300;">Adicionar Produto</button>
+                    <button type="submit" class="btn btn-primary btn-style">Adicionar Produto</button>
                 </div>
             </form>
         </div>
@@ -27,35 +26,28 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col" class="align-middle text-center" style="background-color: #400300e8; color: beige;">Item</th>
-                        <th scope="col" class="align-middle text-center" style="background-color: #400300e8; color: beige;">Qtd.</th>
-                        <th scope="col" class="align-middle text-center" style="background-color: #400300e8; color: beige;">Valor</th>
-                        <th scope="col" class="align-middle text-center" style="background-color: #400300e8; color: beige;">Subtototal
-                        </th>
-                        <th scope="col" class="align-middle text-center" style="background-color: #400300e8; color: beige;">Data</th>
-                        <th scope="col" class="align-middle text-center" style="background-color: #400300e8; color: beige;"
-                            class="align-middle text-center">Ações</th>
+                        <th scope="col" class="align-middle text-center table-header">Item</th>
+                        <th scope="col" class="align-middle text-center table-header">Qtd.</th>
+                        <th scope="col" class="align-middle text-center table-header">Valor</th>
+                        <th scope="col" class="align-middle text-center table-header">Subtotal</th>
+                        <th scope="col" class="align-middle text-center table-header">Data</th>
+                        <th scope="col" class="align-middle text-center table-header">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let venda of listaVendas; let i = index">
-                        <td scope="col" style="border-bottom: 1px solid orange;"
-                            class="align-middle text-center">{{ venda.produto.nome }}</td>
-                        <td scope="col" style=" border-bottom: 1px solid orange;"
-                            class="align-middle text-center"> {{
-                            venda.quantidade}}</td>
-                        <td scope="col" style=" border-bottom: 1px solid orange;"
-                            class="align-middle text-center">{{
-                            venda.produto.valor }}</td>
-                        <td scope="col" style=" border-bottom: 1px solid orange;"
-                            class="align-middle text-center">{{
-                            venda.subtotal }}</td>
-                        <td scope="col" style=" border-bottom: 1px solid orange;"
-                            class="align-middle text-center"> {{
-                            venda.data }}</td>
-                        <td scope="col" style=" border-bottom: 1px solid orange;"
-                            class="align-middle text-center"><app-icon [name]="'excluir'"></app-icon></td>
+                    <tr  *ngFor="let venda of listaVendas; let i = index">
+                        <td scope="col" class="align-middle text-center">{{ venda.produto.nome }}</td>
+                        <td scope="col" class="align-middle text-center">{{ venda.quantidade }}</td>
+                        <td scope="col" class="align-middle text-center">{{ venda.produto.valor }}</td>
+                        <td scope="col" class="align-middle text-center">{{ venda.subtotal }}</td>
+                        <td scope="col" class="align-middle text-center" (click)="excluirProduto(venda)">
+                            {{ venda.data }}
+                        </td>
+                        <td scope="col" class="align-middle text-center">
+                            <app-icon [name]="'excluir'" class="icon-excluir"></app-icon>
+                        </td>
                     </tr>
+                    
                 </tbody>
             </table>
         </div>

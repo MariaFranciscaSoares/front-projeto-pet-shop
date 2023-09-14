@@ -91,9 +91,14 @@ export class EfetuarVendaComponent implements OnInit {
     })
   }
 
-  setarProduto(produto: Produto) {
+  setProduto(produto: Produto) {
     this.produtoSelecionado = produto;
   }
 
+  public excluirProduto(venda: Venda): void {
+    // Use o método filter para criar uma nova lista de produtos excluindo o produto especificado
+    console.log("cheguei aqui")
+    this.produtos = this.produtos.filter(p => p.id !== venda.id);
+  }
   
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Produto } from './model/produto.module';
 
 @Component({
   selector: 'app-cadastrar-produto',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastrarProdutoComponent implements OnInit {
 
+  produto: Produto = new Produto();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  salvarProduto(){
+    
   }
 
 }

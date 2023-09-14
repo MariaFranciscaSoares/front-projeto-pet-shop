@@ -1,0 +1,67 @@
+/* Estilização dos inputs */
+.input-style {
+    border: 1px solid #ffa500; /* Cor da borda */
+    border-radius: 5px; /* Cantos arredondados */
+    background-color: #fff; /* Cor de fundo */
+    color: #333; /* Cor do texto */
+    padding: 8px; /* Espaçamento interno */
+    width: 100%; /* Largura total */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Efeito de transição suave */
+}
+
+.input-style:focus {
+    border-color: #ff6347; /* Cor da borda quando em foco */
+    box-shadow: 0 0 8px rgba(255, 99, 71, 0.4); /* Sombra quando em foco */
+}
+
+/* Estilização do botão */
+.btn-style {
+    background-color: #ff6347; /* Cor de fundo do botão */
+    border-color: #ff6347; /* Cor da borda do botão */
+    color: #fff; /* Cor do texto do botão */
+    transition: background-color 0.3s, border-color 0.3s; /* Efeito de transição suave */
+}
+
+.btn-style:hover {
+    background-color: #ff4500; /* Cor de fundo do botão ao passar o mouse */
+    border-color: #ff4500; /* Cor da borda do botão ao passar o mouse */
+}
+
+/* Estilização da tabela */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    border: 1px solid #ffa500; /* Cor das bordas */
+    padding: 8px; /* Espaçamento interno */
+    text-align: center;
+}
+
+/* Estilização do cabeçalho da tabela */
+.table thead th {
+    background-color: #ffa500; /* Cor de fundo do cabeçalho */
+    color: #fff; /* Cor do texto do cabeçalho */
+    font-weight: bold;
+}
+
+/* Estilização das linhas da tabela */
+.table tbody tr {
+    background-color: #fff;
+}
+
+#td:hover {
+    background: linear-gradient(45deg, #FFD700, #FFA500);;
+    color: #fff;
+}
+
+/* Estilização do ícone "excluir" quando o cursor estiver em cima */
+.table tbody td .icon-excluir:hover {
+    cursor: pointer;
+    color: #ff6347;
+}
+
+
+

@@ -1,12 +1,48 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
 }
+/* Estilo do menu quando o mouse passa por cima */
+.menu:hover {
+    background: linear-gradient(45deg, #d70303, #aa0309) !important; /* Altera o gradiente de fundo */
+    transition: background 0.3s ease !important; /* Adiciona uma transição suave */
+}
+
+.menu .navbar-brand:hover {
+    color: #530205 !important; /* Altera a cor do texto do logotipo ao passar o mouse */
+    transition: color 0.3s ease !important; /* Adiciona uma transição suave */
+}
+
+.menu .nav-link:hover {
+    color: #530205 !important; /* Altera a cor do texto dos links ao passar o mouse */
+    font-size: 1em;
+    font-weight: bold;
+    transition: color 0.3s ease !important; /* Adiciona uma transição suave */
+}
 
 .titulo_pagina {
-    font-size: 1.6em;
-    border: 2em;
-    color: #400300;
+    font-size: 1.5em;
+    color: #8B4513; /* Alterei a cor para branco para combinar com o menu */
     margin-bottom: 1.8em;
-    border-bottom: orange solid 2px;
-    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adicionei sombra de texto */
+    padding: 10px;
+    border-bottom: 2px solid #FFA500; /* Cor laranja */
+    position: relative;
+}
+
+/* Pseudo-elemento ::before para adicionar um efeito */
+.titulo_pagina::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px; /* Altura da linha estilosa */
+    background: linear-gradient(90deg, transparent, #FFA500, transparent); /* Gradiente laranja */
+    bottom: -2px; /* Posicionamento acima da borda sólida */
+    left: 0;
+    transition: all 0.3s; /* Efeito de transição suave */
+}
+
+/* Efeito hover para a borda inferior estilosa */
+.titulo_pagina:hover::before {
+    height: 100%; /* Expandir a linha para cima */
+    transition: all 0.3s; /* Efeito de transição suave */
 }

@@ -1,0 +1,25 @@
+/* Estilo para o card com cor vinho e texto branco */
+.card-vinho {
+    border: 2px solid #FFD700; /* Cor de borda dourada */
+    border-radius: 10px;
+    padding: 20px;
+    background: linear-gradient(45deg, #FFA500, #FF6347); /* Fundo gradiente laranja a vermelho */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); /* Sombra suave */
+    color: #FFF; /* Texto branco para contraste */
+}
+
+/* Estilo para o botão com cor bege e texto preto */
+.btn-bege {
+    background-color: #FFA500; /* Cor de fundo laranja */
+    color: #FFF; /* Texto branco para contraste */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Cantos arredondados */
+    padding: 10px 20px; /* Espaçamento interno */
+    cursor: pointer; /* Cursor de mão ao passar por cima */
+    font-size: 16px; /* Tamanho da fonte */
+    transition: background-color 0.3s ease; /* Transição suave de cor de fundo */
+}
+
+.btn-bege:hover {
+    background-color: #FF6347; /* Cor de fundo vermelha quando hover */
+  }

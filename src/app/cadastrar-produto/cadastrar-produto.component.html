@@ -1,1 +1,30 @@
-<p>cadastrar-produto works!</p>
+
+<app-menu [pageTitle]="'Cadastrar Produto'">
+    <form (submit)="salvarProduto()">
+        <div class="row col-sm-6">
+            <div class="col-sm-12">
+                <label for="nome" class="form-label">Nome:</label>
+                <input type="text" class="form-control input-style" id="nome" name="nome" [(ngModel)]="produto.nome">
+            </div>
+            <div class="col-sm-12">
+                <label for="descricao" class="form-label">Descrição:</label>
+                <input type="text" class="form-control input-style" id="descricao" name="descricao" [(ngModel)]="produto.descricao">
+            </div>
+            <div class="col-sm-12">
+                <label for="quantidade" class="form-label">Quantidade:</label>
+                <input type="number" class="form-control input-style" id="quantidade" name="quantidade" [(ngModel)]="produto.quantidadeEstoque">
+            </div>
+            <div class="col-sm-12">
+                <label for="preco" class="form-label">Preço:</label>
+                <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input type="text" class="form-control input-style" aria-label="Amount (to the nearest dollar)" id="preco" name="preco" [(ngModel)]="produto.preco">
+                    <span class="input-group-text">.00</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 mt-4">
+            <button type="submit" class="btn btn-primary btn-style">Salvar Produto</button>
+        </div>
+    </form>
+</app-menu>

@@ -9,6 +9,20 @@ import { FormsModule } from '@angular/forms';
 import { ListaUsuarioComponent } from './lista-usuario/lista-usuario.component';
 import { IconComponent } from './icon/icon.component';
 import { CadastrarProdutoComponent } from './cadastrar-produto/cadastrar-produto.component';
+import { RouterModule, Routes } from '@angular/router';
+import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
+import { MenuEstoqueComponent } from './menu-estoque/menu-estoque.component';
+import { MenuVendaComponent } from './menu-venda/menu-venda.component';
+
+const routes: Routes = [
+  { path: 'efetuar-venda', component: EfetuarVendaComponent },
+  { path: 'cadastrar-produto', component: CadastrarProdutoComponent },
+  { path: 'lista-usuario', component: ListaUsuarioComponent},
+  { path: 'cadastrar-usuario', component: CadastroUsuarioComponent},
+  { path: 'menu-usuario', component: MenuUsuarioComponent},
+  { path: 'menu-estoque', component: MenuEstoqueComponent},
+  { path: 'menu-venda', component: MenuVendaComponent},
+];
 
 @NgModule({
   declarations: [
@@ -18,12 +32,17 @@ import { CadastrarProdutoComponent } from './cadastrar-produto/cadastrar-produto
     EfetuarVendaComponent,
     ListaUsuarioComponent,
     IconComponent,
-    CadastrarProdutoComponent
+    CadastrarProdutoComponent,
+    MenuUsuarioComponent,
+    MenuEstoqueComponent,
+    MenuVendaComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    [RouterModule.forRoot(routes)]
   ],
+  exports: [RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })
