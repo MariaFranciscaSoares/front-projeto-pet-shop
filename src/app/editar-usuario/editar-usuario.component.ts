@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, createComponent } from '@angular/core';
+import { Usuario } from './model/usuario.module';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -7,53 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditarUsuarioComponent implements OnInit {
 
-  constructor() { }
+  //public usuarios: Usuario[] = [];
+  public usuario: Usuario = {
+    id: 1,
+    usuario: "Fran",
+    nome: "string",
+    email: "string",
+    telefone: "string",
+    cpf: "string",
+    endereco: "string",
+    numero: 1,
+    cep: "string",
+    dataNasc: new Date(),
+    sexo: "Masculino",
+    funcao: "string",
+    dataAdmissao: new Date(),
+  };
 
-  ngOnInit(): void {
-  }
+constructor() { }
 
-  /*public Genero() {
-    var checkRadio = document.querySelector(
-        'input[name="flexRadioDefault"]:checked');
+ngOnInit(): void {
+}
 
-    if(checkRadio) {
-        
-    }
-    else {
-        
-    }
-  }
-
-  public getGenero() {
-    var Homem = document.getElementById('Homem');
-    var Mulher = document.getElementById('Mulher');
-    var usuario;
-  
-    if(document.getElementById('Homem')?.ariaChecked) {
-        usuario = '/assets/usuarioHomem.png';
-    }
-    else if(document.getElementById('Mulher')) {
-        usuario = '/assets/usuarioHomem.png';
-    }
-  }*/
+Masculino = '/assets/usuarioHomem.png';
+Feminino = '/assets/usuarioMulher.png';
 
 }
- 
-
-
-
-/*function getGenero() {
-  var sexo = document.getElementsByName('flexRadioDefault');
-  var genero = '';
-  var usuario;
-
-  if(sexo[0].checked) {
-      genero = 'Homem';
-      usuario = '/assets/usuarioHomem.png';
-  }
-  else if(sexo[1].checked) {
-      genero = 'Mulher';
-      usuario = '/assets/usuarioHomem.png';
-  }
-}*/
 
