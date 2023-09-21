@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
-import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
+import { CadastroUsuarioComponent } from './cadastro-usuario/CadastroUsuarioComponent.1';
 import { EfetuarVendaComponent } from './efetuar-venda/efetuar-venda.component';
-import { FormsModule } from '@angular/forms';
 import { ListaUsuarioComponent } from './lista-usuario/lista-usuario.component';
 import { IconComponent } from './icon/icon.component';
 import { CadastrarProdutoComponent } from './cadastrar-produto/cadastrar-produto.component';
@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'efetuar-venda', component: EfetuarVendaComponent },
   { path: 'cadastrar-produto', component: CadastrarProdutoComponent },
   { path: 'lista-usuario', component: ListaUsuarioComponent},
-  { path: 'cadastrar-usuario', component: CadastroUsuarioComponent},
+  { path: 'cadastro-usuario', component: CadastroUsuarioComponent},
   { path: 'menu-usuario', component: MenuUsuarioComponent},
   { path: 'menu-estoque', component: MenuEstoqueComponent},
   { path: 'menu-venda', component: MenuVendaComponent},
@@ -43,7 +43,8 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    [RouterModule.forRoot(routes)]
+    ReactiveFormsModule,
+        [RouterModule.forRoot(routes)]
   ],
   exports: [RouterModule],
   providers: [],
