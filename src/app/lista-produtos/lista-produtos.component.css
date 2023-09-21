@@ -1,0 +1,91 @@
+/* Estilo para os cartões personalizados */
+.card-custom {
+    background: linear-gradient(to bottom, #336699, #003366);
+    color: #f9f3f3;
+    border: 1px solid #FF6347; /* Cor de borda vinho */
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Efeito de sobreposição no hover */
+.card-custom:hover {
+    transform: scale(1.05); /* Aumenta ligeiramente o tamanho no hover */
+}
+
+/* Estilo para o título do cartão personalizado */
+.card-title {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    text-transform: uppercase; /* Texto em maiúsculas */
+}
+
+/* Estilo para o texto do cartão personalizado */
+.card-text {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+/* Estilo para os botões no cartão personalizado */
+.btn {
+    font-size: 12px;
+    width: 100px;
+    padding: 8px 12px; /* Espaçamento interno nos botões */
+}
+
+/* Estilo para o botão "Alterar" com cor pastel */
+.btn-alterar {
+    background-color: #F0E68C; /* Amarelo Pastel para o botão "Alterar" */
+    border-color: #F0E68C;
+    color: #333;
+    padding: 6px 6px; 
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Efeito de hover para o botão "Alterar" */
+.btn-alterar:hover {
+    background-color: #DAA520; /* Amarelo mais escuro no hover */
+    color: #FFFFFF;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito de foco para o botão "Alterar" */
+.btn-alterar:focus {
+    outline: none;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo para o botão "Excluir" com outra cor pastel e tamanho reduzido */
+.btn-excluir {
+    background-color: #FFB6C1; /* Rosa Pastel para o botão "Excluir" */
+    border-color: #FFB6C1;
+    color: #333;
+    padding: 6px 6px; 
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Efeito de hover para o botão "Excluir" */
+.btn-excluir:hover {
+    background-color: #FF69B4; /* Rosa mais escuro no hover */
+    color: #FFFFFF;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Efeito de foco para o botão "Excluir" */
+.btn-excluir:focus {
+    outline: none;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}

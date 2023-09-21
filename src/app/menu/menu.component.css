@@ -3,7 +3,7 @@
 }
 /* Estilo do menu quando o mouse passa por cima */
 .menu:hover {
-    background: linear-gradient(45deg, #d70303, #aa0309) !important; /* Altera o gradiente de fundo */
+    /* background: linear-gradient(45deg, #d70303, #aa0309) !important; Altera o gradiente de fundo */
     transition: background 0.3s ease !important; /* Adiciona uma transição suave */
 }
 
@@ -13,7 +13,7 @@
 }
 
 .menu .nav-link:hover {
-    color: #530205 !important; /* Altera a cor do texto dos links ao passar o mouse */
+    color: #faf0f0 !important; /* Altera a cor do texto dos links ao passar o mouse */
     font-size: 1em;
     font-weight: bold;
     transition: color 0.3s ease !important; /* Adiciona uma transição suave */
@@ -21,7 +21,7 @@
 
 .titulo_pagina {
     font-size: 1.5em;
-    color: #8B4513; /* Alterei a cor para branco para combinar com o menu */
+    color: #8B4513; 
     margin-bottom: 1.8em;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adicionei sombra de texto */
     padding: 10px;

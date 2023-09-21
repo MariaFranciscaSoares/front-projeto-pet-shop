@@ -14,6 +14,7 @@ import { MenuUsuarioComponent } from './menu-usuario/menu-usuario.component';
 import { MenuEstoqueComponent } from './menu-estoque/menu-estoque.component';
 import { MenuVendaComponent } from './menu-venda/menu-venda.component';
 import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
+import { ListaProdutosComponent } from './lista-produtos/lista-produtos.component';
 
 const routes: Routes = [
   { path: 'efetuar-venda', component: EfetuarVendaComponent },
@@ -24,6 +25,8 @@ const routes: Routes = [
   { path: 'menu-estoque', component: MenuEstoqueComponent},
   { path: 'menu-venda', component: MenuVendaComponent},
   { path: 'editar-usuario', component: EditarUsuarioComponent},
+  { path: 'lista-produtos', component: ListaProdutosComponent},
+
 ];
 
 @NgModule({
@@ -38,7 +41,8 @@ const routes: Routes = [
     MenuUsuarioComponent,
     MenuEstoqueComponent,
     MenuVendaComponent,
-    EditarUsuarioComponent
+    EditarUsuarioComponent,
+    ListaProdutosComponent
   ],
   imports: [
     BrowserModule,

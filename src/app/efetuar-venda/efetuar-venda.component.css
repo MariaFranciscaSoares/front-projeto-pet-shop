@@ -52,11 +52,6 @@
     background-color: #fff;
 }
 
-#td:hover {
-    background: linear-gradient(45deg, #FFD700, #FFA500);;
-    color: #fff;
-}
-
 /* Estilização do ícone "excluir" quando o cursor estiver em cima */
 .table tbody td .icon-excluir:hover {
     cursor: pointer;
