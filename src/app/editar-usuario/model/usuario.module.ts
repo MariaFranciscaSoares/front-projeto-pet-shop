@@ -1,18 +1,24 @@
 
 export class Usuario {
-    public id!: number;
+    public idUsuario!: number;
     public usuario!: string;
-    public nome!: string;
+    public nomeCompleto!: string;
     public email!: string;
-    public telefone!: string;
+    public telefoneCelular!: string;
     public cpf!: string;
     public endereco!: string;
-    public numero!: number;
+    public numEndereco!: number;
     public cep!: string;
-    public dataNasc!: Date;
+    public dataNascimento!: Date;
     public sexo!: string;
     public funcao!: string;
     public dataAdmissao!: Date;
+    public idLoginFk!: Login;
+    public status!: string;
+}
+
+class Login {
+    nomeUsuario!: string;
 }
 
 

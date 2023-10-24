@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from './model/usuario.module';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { UsuarioService } from './adapter/UsuarioService';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -13,27 +15,12 @@ export class CadastroUsuarioComponent implements OnInit {
   btntext!: string;
 
   cadastroUsuario!: FormGroup;
-  
+
   Masculino = '/assets/usuarioHomem.png';
   Feminino = '/assets/usuarioMulher.png';
-  public usuario: Usuario = {
-    id: 0,
-    imagem: "string",
-    nomeUsuario: "string",
-    nomeCompleto: "string",
-    telefone: "string",
-    cpf: "string",
-    dataNascimento: new Date(),
-    email: "string",
-    sexo: "Masculino",
-    cep: "string",
-    endereco: "string",
-    numero: 0,
-    login: "string",
-    senha: "string",
-  };
+  public usuario: Usuario = new Usuario();
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private usuarioService: UsuarioService) { }
   ngOnInit(): void {
     this.cadastroUsuario = this.formBuilder.group({
       id: new FormControl(''),
@@ -45,14 +32,14 @@ export class CadastroUsuarioComponent implements OnInit {
       cep: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
       funcaoSelecionado: new FormControl('', [Validators.required]),
-      sexo: new FormControl ('', [Validators.required]),
+      sexo: new FormControl('', [Validators.required]),
       endereco: new FormControl('', [Validators.required]),
       numero: new FormControl('', [Validators.required]),
       login: new FormControl('', [Validators.required]),
       senha: new FormControl('', [Validators.required]),
     });
   }
-  
+
   get nomeUsuario() {
     return this.cadastroUsuario.get('nomeUsuario')!;
   }
@@ -102,12 +89,56 @@ export class CadastroUsuarioComponent implements OnInit {
 
 
   submit() {
-
     if (this.cadastroUsuario.invalid) {
       return;
     }
+    this.onSubmit();
+  }
 
-    console.log(this.cadastroUsuario.value);
+  onSubmit() {
+    this.usuario.nomeCompleto = this.cadastroUsuario.get('nomeCompleto')?.value;
+    this.usuario.telefoneCelular = this.cadastroUsuario.get('telefone')?.value;
+    this.usuario.cpf = this.cadastroUsuario.get('cpf')?.value;
+    this.usuario.dataNascimento = this.cadastroUsuario.get('dataNascimento')?.value;
+    this.usuario.cep = this.cadastroUsuario.get('cep')?.value;
+    this.usuario.email = this.cadastroUsuario.get('email')?.value;
+    this.usuario.funcao = this.cadastroUsuario.get('funcaoSelecionado')?.value;
+    this.usuario.sexo = this.cadastroUsuario.get('sexo')?.value;
+    this.usuario.endereco = this.cadastroUsuario.get('endereco')?.value;
+    this.usuario.numEndereco = this.cadastroUsuario.get('numero')?.value;
+    this.usuario.idLoginFk.nomeUsuario = this.cadastroUsuario.get('nomeUsuario')?.value;
+    this.usuario.idLoginFk.senha = this.cadastroUsuario.get('senha')?.value;
+    this.usuario.dataAdmissao = this.formatarData(new Date())
+    this.usuario.status = "Ativo"
+    this.salvarUsuario(this.usuario);
+  }
+
+  salvarUsuario(usuario: Usuario) {
+    this.usuarioService.incluirUsuario(usuario).subscribe(
+      response => {
+        this.exibirMensagemDeSucesso();
+      },
+      error => {
+        this.exibirMensagemDeErro();
+      }
+    );
+  }
+
+  public formatarData(date: Date) {
+    const dia = date.getDate();
+    const mes = date.getMonth() + 1; // Os meses em JavaScript são base 0
+    const ano = date.getFullYear();
+
+    const dataFormatada = `${ano}-${mes}-${dia}`;
+    return dataFormatada;
+  }
+
+  exibirMensagemDeSucesso() {
+    Swal.fire('Sucesso!', 'Usuário Cadastrado com Sucesso.', 'success');
+  }
+
+  exibirMensagemDeErro() {
+    Swal.fire('Erro!', 'Ocorreu Algum Erro no Cadastro Usuário.', 'error');
   }
 
 }

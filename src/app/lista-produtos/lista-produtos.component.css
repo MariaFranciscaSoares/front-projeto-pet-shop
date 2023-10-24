@@ -1,11 +1,11 @@
 /* Estilo para os cartões personalizados */
 .card-custom {
-    background: linear-gradient(to bottom, #336699, #003366);
-    color: #f9f3f3;
-    border: 1px solid #FF6347; /* Cor de borda vinho */
+    background: #F1640A;
+    color: #f0e4e4;
+    border: 1px solid #0d02004e; /* Cor de borda vinho */
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    padding: 20px;
+    padding: 10px;
     position: relative;
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
@@ -18,14 +18,15 @@
 
 /* Estilo para o título do cartão personalizado */
 .card-title {
-    font-size: 1rem;
+    font-size: 1.3rem;
+    font-family: 'Lato', serif;
     margin-bottom: 10px;
     text-transform: uppercase; /* Texto em maiúsculas */
 }
 
 /* Estilo para o texto do cartão personalizado */
 .card-text {
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-bottom: 10px;
 }
 

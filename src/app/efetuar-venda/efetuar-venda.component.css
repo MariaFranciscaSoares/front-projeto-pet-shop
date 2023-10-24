@@ -1,33 +1,31 @@
 /* Estilização dos inputs */
 .input-style {
-    border: 1px solid #ffa500; /* Cor da borda */
-    border-radius: 5px; /* Cantos arredondados */
-    background-color: #fff; /* Cor de fundo */
-    color: #333; /* Cor do texto */
-    padding: 8px; /* Espaçamento interno */
-    width: 100%; /* Largura total */
-    transition: border-color 0.3s, box-shadow 0.3s; /* Efeito de transição suave */
+    border: 1px solid #ffa500;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    padding: 8px;
+    width: 100%;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .input-style:focus {
-    border-color: #ff6347; /* Cor da borda quando em foco */
-    box-shadow: 0 0 8px rgba(255, 99, 71, 0.4); /* Sombra quando em foco */
+    border-color: #ff6347;
+    box-shadow: 0 0 8px rgba(255, 99, 71, 0.4);
 }
 
-/* Estilização do botão */
 .btn-style {
-    background-color: #ff6347; /* Cor de fundo do botão */
-    border-color: #ff6347; /* Cor da borda do botão */
-    color: #fff; /* Cor do texto do botão */
-    transition: background-color 0.3s, border-color 0.3s; /* Efeito de transição suave */
+    background-color: #ff6347;
+    border-color: #ff6347;
+    color: #fff;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .btn-style:hover {
-    background-color: #ff4500; /* Cor de fundo do botão ao passar o mouse */
-    border-color: #ff4500; /* Cor da borda do botão ao passar o mouse */
+    background-color: #ff4500;
+    border-color: #ff4500;
 }
 
-/* Estilização da tabela */
 .table {
     width: 100%;
     border-collapse: collapse;
@@ -35,28 +33,28 @@
 
 .table th,
 .table td {
-    border: 1px solid #ffa500; /* Cor das bordas */
-    padding: 8px; /* Espaçamento interno */
+    border: 1px solid #ffa500;
+    padding: 8px;
     text-align: center;
 }
 
-/* Estilização do cabeçalho da tabela */
 .table thead th {
-    background-color: #ffa500; /* Cor de fundo do cabeçalho */
-    color: #fff; /* Cor do texto do cabeçalho */
+    background-color: #F1640A;
+    color: #fff;
     font-weight: bold;
 }
 
-/* Estilização das linhas da tabela */
 .table tbody tr {
     background-color: #fff;
 }
 
-/* Estilização do ícone "excluir" quando o cursor estiver em cima */
 .table tbody td .icon-excluir:hover {
     cursor: pointer;
     color: #ff6347;
 }
 
-
-
+.right-button {
+    position: absolute;
+    margin: 10em;
+    right: 0;
+}

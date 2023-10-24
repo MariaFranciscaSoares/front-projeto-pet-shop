@@ -1,5 +1,7 @@
 import { Component, OnInit, createComponent } from '@angular/core';
 import { Usuario } from './model/usuario.module';
+import { UsuarioService } from './adapter/UsuarioService';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -8,30 +10,67 @@ import { Usuario } from './model/usuario.module';
 })
 export class EditarUsuarioComponent implements OnInit {
 
-  //public usuarios: Usuario[] = [];
-  public usuario: Usuario = {
-    id: 1,
-    usuario: "Fran",
-    nome: "string",
-    email: "string",
-    telefone: "string",
-    cpf: "string",
-    endereco: "string",
-    numero: 1,
-    cep: "string",
-    dataNasc: new Date(),
-    sexo: "Masculino",
-    funcao: "string",
-    dataAdmissao: new Date(),
-  };
 
-constructor() { }
+  public usuario: Usuario = new Usuario;
 
-ngOnInit(): void {
-}
+  constructor(private usuarioService: UsuarioService) { }
 
-Masculino = '/assets/usuarioHomem.png';
-Feminino = '/assets/usuarioMulher.png';
+  ngOnInit(): void {
+    this.getIdUsario();
+  }
+
+  getIdUsario() {
+    let id = localStorage.getItem('userId');
+    localStorage.removeItem('userId');
+
+    if (id != "" && id != null) {
+      this.buscarUsuarioPorId(id);
+    }
+
+  }
+
+  buscarUsuarioPorId(id: any) {
+    this.usuarioService.pesquisarPorId(id).subscribe((data: Usuario) => {
+      this.usuario = data;
+      console.log(data)
+    });
+  }
+
+  editarUsuario() {
+    this.usuarioService.alterarPorId(this.usuario)
+      .subscribe(
+        (response) => {
+          this.exibirMensagemDeSucesso('Usuário Editado com Sucesso.');
+        },
+        (error) => {
+          this.exibirMensagemDeErro('Ocorreu Algum Erro na Edição do Usuário.');
+        }
+      );
+  }
+
+  alterarStatus(value: string) {
+    this.usuario.status = value;
+    this.usuarioService.alterarStatusPorId(this.usuario)
+      .subscribe(
+        (response) => {
+          this.exibirMensagemDeSucesso('Usuário ' + value + ' com Sucesso');
+        },
+        (error) => {
+          this.exibirMensagemDeErro('Ocorreu Algum Erro na Edição do Status do Usuário.');
+        }
+      );
+  }
+
+  Masculino = '/assets/usuarioHomem.png';
+  Feminino = '/assets/usuarioMulher.png';
+
+  exibirMensagemDeSucesso(mensagem: string) {
+    Swal.fire('Sucesso!', mensagem, 'success');
+  }
+
+  exibirMensagemDeErro(mensagem: string) {
+    Swal.fire('Erro!', mensagem, 'error');
+  }
 
 }
 

@@ -1,172 +1,183 @@
 <app-menu [pageTitle]="'Cadastro Usuário'">
-    <form (ngSubmit)="submit()" [formGroup]="cadastroUsuario" #formDir="ngForm">
-      <div class="card">
-        <div class="card-body">
-            <div class="row">
-              <div class="col-sm-8">
-                <div class="mb-3">
-                </div>
-                <div class="mb-3">
-                    <label for="nomeUsuario" class="form-label">Nome de Usuário</label>
-                    <input id="nomeUsuario" class="form-control input-style" formControlName="nomeUsuario" required type="text" placeholder="" />
-                    <div *ngIf="nomeUsuario.invalid && formDir.submitted" class="validation-error">
-                      <p *ngIf="nomeUsuario.errors?.['required']">Nome de Usuário é obrigatório.</p>
-                    </div>
-                  </div>
-                  <div class="mb-3">
-                    <label for="nomeCompleto" class="form-label">Nome Completo</label>
-                    <input id="nomeCompleto" class="form-control input-style" formControlName="nomeCompleto" required type="text" placeholder="" />
-                    <div *ngIf="nomeCompleto.invalid && formDir.submitted" class="validation-error">
-                      <p *ngIf="nomeCompleto.errors?.['required']">Nome Completo é obrigatório.</p>
-                    </div>
-                  </div>
+  <form (ngSubmit)="submit()" [formGroup]="cadastroUsuario" #formDir="ngForm">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="mb-3">
+            </div>
+            <div class="mb-3">
+              <label for="nomeUsuario" class="form-label">Nome de Usuário</label>
+              <input id="nomeUsuario" class="form-control input-style" formControlName="nomeUsuario" required
+                type="text" placeholder="" />
+              <div *ngIf="nomeUsuario.invalid && formDir.submitted" class="validation-error">
+                <p *ngIf="nomeUsuario.errors?.['required']">Nome de Usuário é obrigatório.</p>
               </div>
-              <div class="col-sm-1">
+            </div>
+            <div class="mb-3">
+              <label for="nomeCompleto" class="form-label">Nome Completo</label>
+              <input id="nomeCompleto" class="form-control input-style" formControlName="nomeCompleto" required
+                type="text" placeholder="" />
+              <div *ngIf="nomeCompleto.invalid && formDir.submitted" class="validation-error">
+                <p *ngIf="nomeCompleto.errors?.['required']">Nome Completo é obrigatório.</p>
               </div>
-              <div class="col-sm-2">
-                  <div *ngIf="this.cadastroUsuario.get('sexo')!.value == 'Feminino'">
-                      <img [src]="Feminino" alt="" class="rounded-circle" style="border: 1px solid #726658; padding-top: 10px;" width="200" height="200">
-                      <!--<img src="https://www.imagensempng.com.br/wp-content/uploads/2021/08/02-52.png" width="90%">-->
-                  </div>
-                  <div *ngIf="this.cadastroUsuario.get('sexo')!.value == 'Masculino'">
-                      <img [src]="Masculino" alt="" class="rounded-circle" style="border: 1px solid #726658; padding-top: 10px;" width="200" height="200">
-                      <!--<img src="https://www.imagensempng.com.br/wp-content/uploads/2021/08/02-52.png" width="90%">-->
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-sm-4">
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input id="email" class="form-control input-style" formControlName="email" required type="email" placeholder="example@gmail.com" />
-                        <div *ngIf="email.invalid && formDir.submitted" class="validation-error">
-                          <p *ngIf="email.errors?.['required']">Email é obrigatório.</p>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="mb-3">
-                        <label for="telefone" class="form-label">Telefone celular</label>
-                        <input id="telefone" class="form-control input-style" formControlName="telefone" required type="text" placeholder="" />
-                        <div *ngIf="telefone.invalid && formDir.submitted" class="validation-error">
-                          <p *ngIf="telefone.errors?.['required']">Telefone é obrigatório.</p>
-                        </div>
-                      </div>
-                  </div>
-
-                  <div class="col-sm-4">
-                    <div class="mb-3">
-                        <label for="cpf" class="form-label">CPF:</label>
-                        <input id="cpf" class="form-control input-style" formControlName="cpf" required type="text" placeholder="" />
-                        <div *ngIf="cpf.invalid && formDir.submitted" class="validation-error">
-                          <p *ngIf="cpf.errors?.['required']">CPF é obrigatório.</p>
-                        </div>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="row">
-                  <div class="col-sm-7">
-                      <div class="mb-3">
-                          <label for="endereco" class="form-label">Endereço:</label>
-                          <input id="endereco" class="form-control input-style" required="required" type="text" placeholder="" />
-                          <div *ngIf="endereco.invalid && formDir.submitted" class="validation-error">
-                            <p *ngIf="endereco.errors?.['required']">Endereço é obrigatório.</p>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="col-sm-1">
-                      <div class="mb-3">
-                          <label for="numero" class="form-label">Número:</label>
-                          <input id="numero" class="form-control input-style" required="required" type="text" placeholder="" />
-                      </div>
-                  </div>
-
-                  <div class="col-sm-4">
-                      <div class="mb-3">
-                          <label for="cep" class="form-label">CEP:</label>
-                          <input id="cep" class="form-control input-style" required="required" type="text" placeholder="" />
-                          <div *ngIf="cep.invalid && formDir.submitted" class="validation-error">
-                            <p *ngIf="cep.errors?.['required']">CEP é obrigatório.</p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="row">
-                <div class="col-sm-3">
-                    <label for="dataNascimento" class="form-label">Data de Nascimento:</label>
-                    <input id="dataNascimento" class="form-control input-style" formControlName="dataNascimento" required type="date" />
-                    <div *ngIf="dataNascimento.invalid && formDir.submitted" class="validation-error">
-                      <p *ngIf="dataNascimento.errors?.['required']">Data de Nascimento é obrigatória.</p>
-                    </div>
-                  </div>
-
-                  <div class="col-sm-2" style="padding-left: 50px;">
-                    <label for="sexo" class="form-label">Sexo</label>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" [value]="'Masculino'" formControlName="sexo" id="Homem">
-                      <label class="form-check-label" for="Homem">Masculino</label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" [value]="'Feminino'" formControlName="sexo" id="Mulher">
-                      <label class="form-check-label" for="Mulher">Feminino</label>
-                    </div>
-                    <div *ngIf="sexo.invalid && formDir.submitted" class="validation-error">
-                      <p *ngIf="sexo.errors?.['required']">Sexo é obrigatório.</p>
-                    </div>
-                  </div>
-
-                  <div class="col-sm-3">
-                        <label for="funcaoSelecionado" class="form-label">Função:</label>
-                        <select id="funcaoSelecionado" class="form-select" formControlName="funcaoSelecionado">
-                          <option value="Administrador">Administrador</option>
-                          <option value="Vendedor">Vendedor</option>
-                        </select>
-                        <div *ngIf="funcaoSelecionado.invalid && formDir.submitted" class="validation-error">
-                          <p *ngIf="funcaoSelecionado.errors?.['required']">Função é obrigatória.</p>
-                        </div>
-                      </div>
-              
-              </div>
-              <div class="row">
-                <div class="col-sm-6">
-                    <div class="mb-3">
-                        <label for="login" class="form-label">Usuário:</label>
-                        <input id="login" class="form-control input-style" formControlName="login" required type="text" placeholder="" />
-                        <div *ngIf="login.invalid && formDir.submitted" class="validation-error">
-                          <p *ngIf="login.errors?.['required']">Usuário é obrigatório.</p>
-                        </div>
-                      </div>
-              
-                </div>
-
-                <div class="col-sm-6">
-                    <div class="mb-3">
-                        <label for="senha" class="form-label">Senha:</label>
-                        <input id="senha" class="form-control input-style" formControlName="senha" required type="password" placeholder="" />
-                        <div *ngIf="senha.invalid && formDir.submitted" class="validation-error">
-                          <p *ngIf="senha.errors?.['required']">Senha é obrigatória.</p>
-                        </div>
-                      </div>
+            </div>
+          </div>
+          <div class="col-sm-1">
+          </div>
+          <div class="col-sm-2">
+            <div *ngIf="this.cadastroUsuario.get('sexo')!.value == 'Feminino'">
+              <img [src]="Feminino" alt="" class="rounded-circle" style="border: 1px solid #726658; padding-top: 10px;"
+                width="200" height="200">
+              <!--<img src="https://www.imagensempng.com.br/wp-content/uploads/2021/08/02-52.png" width="90%">-->
+            </div>
+            <div *ngIf="this.cadastroUsuario.get('sexo')!.value == 'Masculino'">
+              <img [src]="Masculino" alt="" class="rounded-circle" style="border: 1px solid #726658; padding-top: 10px;"
+                width="200" height="200">
+              <!--<img src="https://www.imagensempng.com.br/wp-content/uploads/2021/08/02-52.png" width="90%">-->
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input id="email" class="form-control input-style" formControlName="email" required type="email"
+                  placeholder="example@gmail.com" />
+                <div *ngIf="email.invalid && formDir.submitted" class="validation-error">
+                  <p *ngIf="email.errors?.['required']">Email é obrigatório.</p>
                 </div>
               </div>
-              <div class="row">
-                  <div class="col-sm-2" style="padding-left: 50px;">
-                      <br>
-                      <button type="submit" class="btn btn-primary btn-style"
-                          onclick="alert('Cadastro de usuário alterado com sucesso!')">Cadastrar</button>
-                  </div>
-
-                  <div class="col-sm-1">
-                      <br>
-                      <button type="button" class="btn btn-outline-danger"
-                          onclick="alert('Cadastro de usuário desativado com sucesso!')">Cancelar</button>
-                  </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="mb-3">
+                <label for="telefone" class="form-label">Telefone celular</label>
+                <input id="telefone" class="form-control input-style" formControlName="telefone" required type="text"
+                  placeholder="" />
+                <div *ngIf="telefone.invalid && formDir.submitted" class="validation-error">
+                  <p *ngIf="telefone.errors?.['required']">Telefone é obrigatório.</p>
+                </div>
               </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="mb-3">
+                <label for="cpf" class="form-label">CPF:</label>
+                <input id="cpf" class="form-control input-style" formControlName="cpf" required type="text"
+                  placeholder="" />
+                <div *ngIf="cpf.invalid && formDir.submitted" class="validation-error">
+                  <p *ngIf="cpf.errors?.['required']">CPF é obrigatório.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-7">
+              <div class="mb-3">
+                <label for="endereco" class="form-label">Endereço:</label>
+                <input id="endereco" class="form-control input-style" required="required" type="text"
+                  formControlName="endereco" placeholder="" />
+                <div *ngIf="endereco.invalid && formDir.submitted" class="validation-error">
+                  <p *ngIf="endereco.errors?.['required']">Endereço é obrigatório.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-1">
+              <div class="mb-3">
+                <label for="numero" class="form-label">Número:</label>
+                <input id="numero" class="form-control input-style" formControlName="numero" required="required"
+                  type="text" placeholder="" />
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="mb-3">
+                <label for="cep" class="form-label">CEP:</label>
+                <input id="cep" class="form-control input-style" required="required" type="text" formControlName="cep"
+                  placeholder="" />
+                <div *ngIf="cep.invalid && formDir.submitted" class="validation-error">
+                  <p *ngIf="cep.errors?.['required']">CEP é obrigatório.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-3">
+              <label for="dataNascimento" class="form-label">Data de Nascimento:</label>
+              <input id="dataNascimento" class="form-control input-style" formControlName="dataNascimento" required
+                type="date" />
+              <div *ngIf="dataNascimento.invalid && formDir.submitted" class="validation-error">
+                <p *ngIf="dataNascimento.errors?.['required']">Data de Nascimento é obrigatória.</p>
+              </div>
+            </div>
+
+            <div class="col-sm-2" style="padding-left: 50px;">
+              <label for="sexo" class="form-label">Sexo</label>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" [value]="'Masculino'" formControlName="sexo" id="Homem">
+                <label class="form-check-label" for="Homem">Masculino</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" [value]="'Feminino'" formControlName="sexo" id="Mulher">
+                <label class="form-check-label" for="Mulher">Feminino</label>
+              </div>
+              <div *ngIf="sexo.invalid && formDir.submitted" class="validation-error">
+                <p *ngIf="sexo.errors?.['required']">Sexo é obrigatório.</p>
+              </div>
+            </div>
+
+            <div class="col-sm-3">
+              <label for="funcaoSelecionado" class="form-label">Função:</label>
+              <select id="funcaoSelecionado" class="form-select" formControlName="funcaoSelecionado">
+                <option value="Administrador">Administrador</option>
+                <option value="Vendedor">Vendedor</option>
+              </select>
+              <div *ngIf="funcaoSelecionado.invalid && formDir.submitted" class="validation-error">
+                <p *ngIf="funcaoSelecionado.errors?.['required']">Função é obrigatória.</p>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="mb-3">
+                <label for="login" class="form-label">Usuário:</label>
+                <input id="login" class="form-control input-style" formControlName="login" required type="text"
+                  placeholder="" />
+                <div *ngIf="login.invalid && formDir.submitted" class="validation-error">
+                  <p *ngIf="login.errors?.['required']">Usuário é obrigatório.</p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-sm-6">
+              <div class="mb-3">
+                <label for="senha" class="form-label">Senha:</label>
+                <input id="senha" class="form-control input-style" formControlName="senha" required type="password"
+                  placeholder="" />
+                <div *ngIf="senha.invalid && formDir.submitted" class="validation-error">
+                  <p *ngIf="senha.errors?.['required']">Senha é obrigatória.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-2" style="padding-left: 50px;">
+              <br>
+              <button type="submit" class="btn btn-primary btn-style">Cadastrar</button>
+            </div>
+
+            <div class="col-sm-1">
+              <br>
+              <button type="button" class="btn btn-outline-danger">Cancelar</button>
+            </div>
           </div>
         </div>
+      </div>
     </div>
-</form>
-    
+  </form>
+
 </app-menu>

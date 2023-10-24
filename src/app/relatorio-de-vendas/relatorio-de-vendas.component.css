@@ -1,3 +1,4 @@
+/* Estilização dos inputs */
 .input-style {
     border: 1px solid #ffa500; /* Cor da borda */
     border-radius: 5px; /* Cantos arredondados */
@@ -15,7 +16,7 @@
 
 .table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: collapse;    
 }
 
 .table th,
@@ -42,4 +43,3 @@
     cursor: pointer;
     color: #ff6347;
 }
-

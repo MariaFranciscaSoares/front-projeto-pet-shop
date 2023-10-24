@@ -8,11 +8,11 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ produto.nome }}</h5>
                                 <p>{{ produto.descricao }}</p>
-                                <p class="card-text">Preço: R$ {{ produto.valor }}</p>
-                                <p class="card-text">Quantidade em estoque: {{ produto.quantidadeEstoque }}</p>
+                                <p class="card-text">Preço: R$ {{ produto.preco }}</p>
+                                <p class="card-text">Quantidade em estoque: {{ produto.quantidade }}</p>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <button type="button" class="btn btn-alterar">Alterar</button>
-                                    <button type="button" class="btn btn-excluir">Excluir</button>
+                                    <button type="button" class="btn btn-alterar" (click)="alterarProduto(produto.idProduto)">Alterar</button>
+                                    <button type="button" class="btn btn-excluir" (click)="excluirProduto(produto.idProduto)" >Excluir</button>
                                 </div>
                             </div>
                         </div>

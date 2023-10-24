@@ -1,42 +1,44 @@
 .input-style {
-  border: 2px solid #ccc; /* Cor da borda */
-  border-radius: 5px; /* Cantos arredondados */
-  background-color: #f9f9f9; /* Cor de fundo */
-  color: #333; /* Cor do texto */
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
 .input-style:focus {
-  border-color: #ff6347; /* Cor da borda quando em foco */
-  box-shadow: 0 0 8px rgba(255, 99, 71, 0.4); /* Sombra quando em foco */
+  border-color: #ff6347;
+  box-shadow: 0 0 8px rgba(255, 99, 71, 0.4);
 }
 
-/* Estilização do botão */
+
 .btn-style {
-  background-color: #ff6347; /* Cor de fundo do botão */
-  border-color: #ff6347; /* Cor da borda do botão */
-  color: #fff; /* Cor do texto do botão */
+  background-color: #ff6347;
+  border-color: #ff6347;
+  color: #fff;
 }
 
 .btn-style:hover {
-  background-color: #ff4500; /* Cor de fundo do botão ao passar o mouse */
-  border-color: #ff4500; /* Cor da borda do botão ao passar o mouse */
+  background-color: #ff4500;
+  border-color: #ff4500;
 }
 
 .btn-style:focus {
-  box-shadow: 0 0 8px rgba(255, 69, 0, 0.4); /* Sombra quando em foco */
+  box-shadow: 0 0 8px rgba(255, 69, 0, 0.4);
 }
 
-input[type="radio"]{
+input[type="radio"] {
   width: 20px;
   height: 20px;
 }
-input[type="radio"]:checked{
+
+input[type="radio"]:checked {
   background-color: #ff4500;
 }
-  .validation-error{
-    color: #DC3545;
-    margin-top: .4em;
-    border-left: 3px solid #DC3545;
-    padding-left: 0.2em;
-    font-size: small;
-  }
+
+.validation-error {
+  color: #DC3545;
+  margin-top: .4em;
+  border-left: 3px solid #DC3545;
+  padding-left: 0.2em;
+  font-size: small;
+}

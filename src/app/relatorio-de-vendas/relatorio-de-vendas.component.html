@@ -1,0 +1,29 @@
+<app-menu [pageTitle]="'Relatório de Vendas'">
+    <div class="row">
+        <div class="col-sm-4 mb-3">
+            <input class="input-style" type="text" [(ngModel)]="filtroIdVenda" (input)="aplicarFiltro()"
+                placeholder="Filtrar por ID da Venda" />
+        </div>
+        <div class="col-sm-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="align-middle text-center table-header">ID da Venda</th>
+                        <th scope="col" class="align-middle text-center table-header">Data da Venda</th>
+                        <th scope="col" class="align-middle text-center table-header">Quantidade de Produtos</th>
+                        <th scope="col" class="align-middle text-center table-header">Valor Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let venda of vendasConsolidadas">
+                        <td class="align-middle text-center">{{ venda.idVenda }}</td>
+                        <td class="align-middle text-center">{{ venda.dataVenda }}</td>
+                        <td class="align-middle text-center">{{ venda.quantidadeProdutos }}</td>
+                        <td class="align-middle text-center">{{ venda.valorTotal | currency }}</td>
+                        <!-- Formate o valor como moeda se necessário -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</app-menu>

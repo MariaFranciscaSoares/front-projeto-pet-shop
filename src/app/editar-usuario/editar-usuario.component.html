@@ -5,17 +5,19 @@
                 <div class="col-sm-8">
                     <div class="mb-3">
                         <label class="form-label">Código:</label>
-                        <label id="codigo">01</label>
+                        <label [(ngModel)]="usuario.idUsuario" id="idUsuario">01</label>
                     </div>
 
                     <div class="mb-3">
-                        <label for="nomeUsuFunc" class="form-label">Nome de Usuário</label>
-                        <input id="nomeUsuFunc" class="form-control input-style" required="required" type="text" placeholder="" />
+                        <label for="nomeUsuario" class="form-label">Nome de Usuário</label>
+                        <input id="nomeUsuario" [(ngModel)]="usuario.idLoginFk.nomeUsuario"
+                            class="form-control input-style" required="required" type="text" placeholder="" />
                     </div>
 
                     <div class="mb-3">
-                        <label for="nomeFunc" class="form-label">Nome Completo</label>
-                        <input id="nomeFunc" class="form-control input-style" required="required" type="text" placeholder="" />
+                        <label for="nomeCompleto" class="form-label">Nome Completo</label>
+                        <input id="nomeCompleto" [(ngModel)]="usuario.nomeCompleto" class="form-control input-style"
+                            required="required" type="text" placeholder="" />
                     </div>
                 </div>
 
@@ -25,11 +27,13 @@
 
                 <div class="col-sm-2">
                     <div *ngIf="usuario.sexo == 'Feminino'">
-                        <img [src]="Feminino" alt="" class="rounded-circle" style="border: 1px solid #726658; padding-top: 10px;" width="200" height="200">
+                        <img [src]="Feminino" alt="" class="rounded-circle"
+                            style="border: 1px solid #726658; padding-top: 10px;" width="200" height="200">
                         <!--<img src="https://www.imagensempng.com.br/wp-content/uploads/2021/08/02-52.png" width="90%">-->
                     </div>
                     <div *ngIf="usuario.sexo == 'Masculino'">
-                        <img [src]="Masculino" alt="" class="rounded-circle" style="border: 1px solid #726658; padding-top: 10px;" width="200" height="200">
+                        <img [src]="Masculino" alt="" class="rounded-circle"
+                            style="border: 1px solid #726658; padding-top: 10px;" width="200" height="200">
                         <!--<img src="https://www.imagensempng.com.br/wp-content/uploads/2021/08/02-52.png" width="90%">-->
                     </div>
                 </div>
@@ -38,21 +42,23 @@
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="emailFunc" class="form-label">Email</label>
-                            <input id="emailFunc" class="form-control input-style" required="required" type="email"
-                                placeholder="example@gmail.com" />
+                            <input id="emailFunc" [(ngModel)]="usuario.email" class="form-control input-style"
+                                required="required" type="email" placeholder="example@gmail.com" />
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="telFunc" class="form-label">Telefone celular</label>
-                            <input id="telFunc" class="form-control input-style" required="required" type="text" placeholder="" />
+                            <input id="telFunc" [(ngModel)]="usuario.telefoneCelular" class="form-control input-style"
+                                required="required" type="text" placeholder="" />
                         </div>
                     </div>
 
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="cpfFunc" class="form-label">CPF:</label>
-                            <input id="cpfFunc" class="form-control input-style" required="required" type="text" placeholder="" />
+                            <input id="cpfFunc" [(ngModel)]="usuario.cpf" class="form-control input-style"
+                                required="required" type="text" placeholder="" />
                         </div>
                     </div>
                 </div>
@@ -61,21 +67,24 @@
                     <div class="col-sm-7">
                         <div class="mb-3">
                             <label for="endFunc" class="form-label">Endereço:</label>
-                            <input id="endFunc" class="form-control input-style" required="required" type="text" placeholder="" />
+                            <input id="endFunc" [(ngModel)]="usuario.endereco" class="form-control input-style"
+                                required="required" type="text" placeholder="" />
                         </div>
                     </div>
 
                     <div class="col-sm-1">
                         <div class="mb-3">
                             <label for="numFunc" class="form-label">Número:</label>
-                            <input id="numFunc" class="form-control input-style" required="required" type="text" placeholder="" />
+                            <input id="numFunc" [(ngModel)]="usuario.numEndereco" class="form-control input-style"
+                                required="required" type="text" placeholder="" />
                         </div>
                     </div>
 
                     <div class="col-sm-4">
                         <div class="mb-3">
                             <label for="cepFunc" class="form-label">CEP:</label>
-                            <input id="cepFunc" class="form-control input-style" required="required" type="text" placeholder="" />
+                            <input id="cepFunc" [(ngModel)]="usuario.cep" class="form-control input-style"
+                                required="required" type="text" placeholder="" />
                         </div>
                     </div>
                 </div>
@@ -83,18 +92,21 @@
                 <div class="row">
                     <div class="col-sm-3">
                         <label for="datanascFunc" class="form-label">Data de Nascimento:</label>
-                        <input type="date" class="form-control input-style" name="datanascFunc" id="datanascFunc">
+                        <input type="date" [(ngModel)]="usuario.dataNascimento" class="form-control input-style"
+                            name="datanascFunc" id="datanascFunc">
                     </div>
 
                     <div class="col-sm-2" style="padding-left: 50px;">
                         <label for="sexoFunc" class="form-label">Sexo</label>
                         <div class="form-check">
-                            <input [(ngModel)]="usuario.sexo" class="form-check-input" type="radio" value="Masculino" name="flexRadioDefault" id="Homem" checked>
+                            <input [(ngModel)]="usuario.sexo" class="form-check-input" type="radio" value="Masculino"
+                                name="flexRadioDefault" id="Homem" checked>
                             <label class="form-check-label" for="flexRadioDefault1">Masculino</label>
                         </div>
 
                         <div class="form-check">
-                            <input [(ngModel)]="usuario.sexo" class="form-check-input" type="radio" value="Feminino" name="flexRadioDefault" id="Mulher">
+                            <input [(ngModel)]="usuario.sexo" class="form-check-input" type="radio" value="Feminino"
+                                name="flexRadioDefault" id="Mulher">
                             <label class="form-check-label" for="flexRadioDefault2">Feminino</label>
                         </div>
 
@@ -102,14 +114,16 @@
 
                     <div class="col-sm-3">
                         <label for="inputState" class="form-label">Função:</label>
-                        <select id="inputState" class="form-select input-style" name="funcaoSelecionado">
-                            <option>Administrador</option>
-                            <option>Funcionário</option>
+                        <select id="inputState" class="form-select input-style" [(ngModel)]="usuario.funcao"
+                            name="funcaoSelecionado">
+                            <option value="Administrador">Administrador</option>
+                            <option value="Funcionário">Funcionário</option>
                         </select>
                     </div>
 
                     <div class="col-sm-4" style="padding-left: 90px; padding-top: 45px;">
-                        <label for="admissaoFunc" class="form-label">Data de Admissão:</label>
+                        <label for="admissaoFunc" [(ngModel)]="usuario.dataAdmissao" class="form-label">Data de
+                            Admissão:</label>
                         <label id="admissaoFunc">01/03/23</label>
                     </div>
                 </div>
@@ -118,13 +132,18 @@
                     <div class="col-sm-1">
                         <br>
                         <button type="submit" class="btn btn-primary btn-style"
-                            onclick="alert('Cadastro de usuário alterado com sucesso!')">Editar</button>
+                            (click)="editarUsuario()">Editar</button>
                     </div>
 
-                    <div class="col-sm-1">
+                    <div class="col-sm-1" *ngIf="usuario.status == 'Ativo'">
                         <br>
                         <button type="button" class="btn btn-outline-danger"
-                            onclick="alert('Cadastro de usuário desativado com sucesso!')">Desativar</button>
+                            (click)="alterarStatus('Desativado')">Desativar</button>
+                    </div>
+                    <div class="col-sm-1" *ngIf="usuario.status == 'Desativado'">
+                        <br>
+                        <button type="button" class="btn btn-outline-danger"
+                            (click)="alterarStatus('Ativo')">Ativar</button>
                     </div>
                 </div>
             </div>

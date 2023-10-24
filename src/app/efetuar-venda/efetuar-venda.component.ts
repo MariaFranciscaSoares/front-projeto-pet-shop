@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Produto, Venda } from './model/venda.module';
+import { ProdutoService } from '../lista-produtos/adapter/ProdutoService';
+import { Produto } from '../lista-produtos/model/produto.module';
+import { DadosVenda, Produtos, VendaModel } from './model/venda.module';
+import { VendaService } from './adapter/efetuarVendaAdapter';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-efetuar-venda',
@@ -8,84 +12,49 @@ import { Produto, Venda } from './model/venda.module';
 })
 export class EfetuarVendaComponent implements OnInit {
 
-  public listaVendas: Venda[] = [];
+  public listaVendas: VendaModel[] = [];
   produtos: Produto[] = [];
-  produtoSelecionado: Produto = {
-    id: 0,
-    nome: "Selecione",
-    valor: 0,
-    quantidadeEstoque: 0,
-  };
+  produtoSelecionado!: Produto;
 
+  produtosDadosVenda: Produtos[] = [];
+  produtoDadosVenda: Produtos = new Produtos();
+  dadosVenda: DadosVenda = new DadosVenda();
   quantidade: number = 0;
+  usuario: string = "1";
 
-
-  constructor() {
-    this.produtos = this.criarListaProdutosSimulada();
-    console.log(this.produtos)
-  }
+  constructor(private produtoService: ProdutoService, private vendaService: VendaService) { }
 
   ngOnInit(): void {
+    this.produtoService.getProducts().subscribe((data) => {
+      this.produtos = data;
+      console.log(data)
+    });
+
   }
 
-  private criarListaProdutosSimulada(): Produto[] {
-    const listaProdutos: Produto[] = [];
 
-    const nomesProdutos = [
-      'Ração para Cães',
-      'Ração para Gatos',
-      'Brinquedo para Cães',
-      'Brinquedo para Gatos',
-      'Coleira para Cães',
-      'Coleira para Gatos',
-      'Camiseta para Cães',
-      'Cama para Cães',
-      'Cama para Gatos',
-      'Shampoo para Cães',
-    ];
-
-    for (let i = 0; i < nomesProdutos.length; i++) {
-      const produto = new Produto();
-      produto.id = i + 1;
-      produto.nome = nomesProdutos[i];
-      produto.valor = parseFloat((Math.random() * 50 + 10).toFixed(2)); // Exemplo de valor aleatório
-      produto.quantidadeEstoque = Math.floor(Math.random() * 50) + 10; // Estoque aleatório
-
-      listaProdutos.push(produto);
-    }
-    return listaProdutos;
-  }
 
   public adicionarVenda(): void {
-    if (this.produtoSelecionado && this.quantidade > 0) {
-      const novaVenda = new Venda();
-      novaVenda.id = this.listaVendas.length + 1;
-      novaVenda.produto = this.produtoSelecionado;
-      novaVenda.quantidade = this.quantidade;
-      novaVenda.subtotal = (this.produtoSelecionado.valor * this.quantidade).toFixed(2);
-      novaVenda.data = this.formatarData(new Date());
-
-      this.listaVendas.push(novaVenda);
-      console.log(this.produtoSelecionado);
-      console.log(this.listaVendas);
-      // Limpar campos após adicionar a venda
-     // this.produtoSelecionado = new Produto();
-      //this.quantidade = 0;
-    }
+    const novaVenda = new VendaModel();
+    novaVenda.produto = this.produtoSelecionado;
+    novaVenda.quantidade = this.quantidade;
+    novaVenda.subtotal = (this.produtoSelecionado.preco * this.quantidade).toFixed(2);
+    novaVenda.data = this.formatarData(new Date());
+    this.listaVendas.push(novaVenda);
   }
 
   public formatarData(date: Date) {
     const dia = date.getDate();
     const mes = date.getMonth() + 1; // Os meses em JavaScript são base 0
     const ano = date.getFullYear();
-  
-    const dataFormatada = `${dia}/${mes}/${ano}`;
+
+    const dataFormatada = `${ano}-${mes}-${dia}`;
     return dataFormatada;
   }
 
   buscarProduto(produto: Produto) {
     this.produtos.forEach((p) => {
-      if (p.id = produto.id) {
+      if (p.idProduto = produto.idProduto) {
         this.produtoSelecionado = p;
       }
     })
@@ -95,10 +64,54 @@ export class EfetuarVendaComponent implements OnInit {
     this.produtoSelecionado = produto;
   }
 
-  public excluirProduto(venda: Venda): void {
-    // Use o método filter para criar uma nova lista de produtos excluindo o produto especificado
+  public excluirProduto(venda: VendaModel): void {
     console.log("cheguei aqui")
-    this.produtos = this.produtos.filter(p => p.id !== venda.id);
+    this.listaVendas = this.listaVendas.filter(v => v.produto.idProduto != venda.produto.idProduto);
   }
-  
+
+  finalizarVenda() {
+    this.setDadosVenda();
+    this.incluirVenda();
+  }
+
+  setDadosVenda() {
+
+    this.dadosVenda.venda.idVenda = this.listaVendas[0].id;
+    this.dadosVenda.venda.dataVenda = this.listaVendas[0].data;
+    this.dadosVenda.venda.idVendedorFk = this.usuario;
+
+    this.listaVendas.forEach((venda) => {
+
+      this.produtoDadosVenda.idProduto = venda.produto.idProduto;
+      this.produtoDadosVenda.quantidade = venda.quantidade;
+
+      this.produtosDadosVenda.push(this.produtoDadosVenda);
+    });
+
+    this.dadosVenda.produtos = this.produtosDadosVenda;
+  }
+
+  incluirVenda() {
+    console.log(this.dadosVenda)
+    this.vendaService.incluirVenda(this.dadosVenda).subscribe(
+      response => {
+        this.exibirMensagemDeSucesso();
+      },
+      error => {
+          this.exibirMensagemDeErro();
+      }
+    );
+  }
+
+  exibirMensagemDeSucesso() {
+    Swal.fire('Sucesso!', 'Venda Finalizada com Sucesso.', 'success');
+  }
+
+  exibirMensagemDeErro() {
+    Swal.fire('Erro!', 'Ocorreu Algum Erro na Finalização da Venda.', 'error');
+  }
+
 }
+
+
+

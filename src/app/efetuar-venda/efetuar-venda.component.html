@@ -3,7 +3,7 @@
         <div class="col-sm-4">
             <form class="venda-form" (submit)="adicionarVenda()">
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-7">
                         <label for="inputState" class="form-label">Nome Produto:</label>
                         <select id="inputState" class="form-select" [(ngModel)]="produtoSelecionado"
                             name="produtoSelecionado">
@@ -11,7 +11,7 @@
                                 (change)="buscarProduto(produtoSelecionado)">{{ produto.nome }}</option>
                         </select>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <label for="quantidade" class="form-label">Quantidade:</label>
                         <input type="number" class="form-control input-style" id="quantidade" name="quantidade"
                             [(ngModel)]="quantidade">
@@ -30,7 +30,6 @@
                         <th scope="col" class="align-middle text-center table-header">Qtd.</th>
                         <th scope="col" class="align-middle text-center table-header">Valor</th>
                         <th scope="col" class="align-middle text-center table-header">Subtotal</th>
-                        <th scope="col" class="align-middle text-center table-header">Data</th>
                         <th scope="col" class="align-middle text-center table-header">Ações</th>
                     </tr>
                 </thead>
@@ -38,18 +37,17 @@
                     <tr  *ngFor="let venda of listaVendas; let i = index">
                         <td scope="col" class="align-middle text-center">{{ venda.produto.nome }}</td>
                         <td scope="col" class="align-middle text-center">{{ venda.quantidade }}</td>
-                        <td scope="col" class="align-middle text-center">{{ venda.produto.valor }}</td>
+                        <td scope="col" class="align-middle text-center">{{ venda.produto.preco }}</td>
                         <td scope="col" class="align-middle text-center">{{ venda.subtotal }}</td>
-                        <td scope="col" class="align-middle text-center" (click)="excluirProduto(venda)">
-                            {{ venda.data }}
-                        </td>
-                        <td scope="col" class="align-middle text-center">
+                        <td scope="col" class="align-middle text-center"(click)="excluirProduto(venda)">
                             <app-icon [name]="'excluir'" class="icon-excluir"></app-icon>
                         </td>
                     </tr>
-                    
                 </tbody>
             </table>
+        </div>
+        <div class="col-sm-2 mt-4">
+            <button class="btn btn-primary btn-style right-button" (click)="finalizarVenda()">Finalizar Venda</button>
         </div>
     </div>
 </app-menu>

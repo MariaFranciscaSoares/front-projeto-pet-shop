@@ -1,9 +1,9 @@
 
 export class Usuario {
-    public codigo!: number;
-    public nome!: string;
+    public idUsuario!: number;
+    public nomeCompleto!: string;
     public cpf!: string;
-    public perfil!: string;
-    public departamento!: string;
-    public situacao!: string;
+    public email!: string;
+    public descricaoCargo!: string;
+    public status!: string;
 }

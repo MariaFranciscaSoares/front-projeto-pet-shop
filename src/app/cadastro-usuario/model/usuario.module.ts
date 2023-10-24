@@ -1,19 +1,28 @@
-import { Data } from "@angular/router";
 
 export class Usuario {
-    public id!: number;
-    public imagem: string = "";
-    public nomeUsuario: string = "";
-    public nomeCompleto: string = "";
-    public telefone: string = "";
-    public cpf: string = "";
-    public dataNascimento!: Date;
-    public email: string = "";
-    public sexo: string = "";
-    public cep: string = "";
-    public endereco: string = "";
-    public numero!: number;
-    public login: string = "";
-    public senha: string = "";
-   }  
- 
+    idUsuario: string = "";
+    nomeCompleto: string = "";
+    email: string = "";
+    telefoneCelular: string = "";
+    cpf: string = "";
+    endereco: string = "";
+    numEndereco: number = 0;
+    dataNascimento: string = "";
+    funcao: string = "";
+    idLoginFk: LoginVO = new LoginVO();
+    sexo: string = "";
+    cep: string = "";
+    dataAdmissao: string = "";
+    status: string = "";
+}
+
+export class LoginVO {
+    idLogin: string = "";
+    nomeUsuario: string = "";
+    senha: string = "";
+}
+
+
+
+
+

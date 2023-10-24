@@ -1,8 +1,8 @@
 
 export class Produto {
-    public id!: number;
-    public nome!: string;
-    public descricao!: string;
+    public id: string = "";
+    public nome: string = "";
+    public descricao: string = "";
     public preco: number = 0;
-    public quantidadeEstoque: number = 0;
+    public quantidade: number = 0;
 }
