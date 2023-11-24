@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
+import { LoginComponent } from './login/login.component';
 import { CadastroUsuarioComponent } from './cadastro-usuario/CadastroUsuarioComponent.1';
 import { EfetuarVendaComponent } from './efetuar-venda/efetuar-venda.component';
 import { ListaUsuarioComponent } from './lista-usuario/lista-usuario.component';
@@ -15,6 +16,7 @@ import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.componen
 import { ListaProdutosComponent } from './lista-produtos/lista-produtos.component';
 import { RelatorioDeVendasComponent } from './relatorio-de-vendas/relatorio-de-vendas.component';
 import { EditarProdutoComponent } from './editar-produto/editar-produto.component';
+import { UsuarioService } from './login/adapter/UsuarioService';
 
 const routes: Routes = [
   { path: 'efetuar-venda', component: EfetuarVendaComponent },
@@ -25,13 +27,14 @@ const routes: Routes = [
   { path: 'lista-produtos', component: ListaProdutosComponent},
   { path: 'relatorio-vendas', component: RelatorioDeVendasComponent},
   { path: 'editar-produto', component: EditarProdutoComponent},
-
+  { path: 'login', component: LoginComponent},
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
+    LoginComponent,
     CadastroUsuarioComponent,
     EfetuarVendaComponent,
     ListaUsuarioComponent,
@@ -40,7 +43,8 @@ const routes: Routes = [
     EditarUsuarioComponent,
     ListaProdutosComponent,
     RelatorioDeVendasComponent,
-    EditarProdutoComponent
+    EditarProdutoComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,7 @@ const routes: Routes = [
         [RouterModule.forRoot(routes)]
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
